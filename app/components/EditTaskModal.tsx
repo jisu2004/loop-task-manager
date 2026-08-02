@@ -42,31 +42,33 @@ export default function EditTaskModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl">
-        <h2 className="mb-4 text-xl font-bold">
+      <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+
+        <h2 className="mb-6 text-2xl font-bold text-gray-900">
           Edit Task
         </h2>
 
         <input
-          className="mb-4 w-full rounded-lg border p-3"
+          type="text"
           value={form.title}
           onChange={(e) =>
             updateField("title", e.target.value)
           }
+          className="mb-4 w-full rounded-xl border border-gray-300 bg-white p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         />
 
         <textarea
           rows={4}
-          className="mb-4 w-full rounded-lg border p-3"
           value={form.description ?? ""}
           onChange={(e) =>
             updateField("description", e.target.value)
           }
+          className="mb-4 w-full rounded-xl border border-gray-300 bg-white p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         />
 
-        <div className="mb-5 grid grid-cols-2 gap-4">
+        <div className="mb-6 grid grid-cols-2 gap-4">
+
           <select
-            className="rounded-lg border p-3"
             value={form.priority}
             onChange={(e) =>
               updateField(
@@ -74,14 +76,14 @@ export default function EditTaskModal({
                 e.target.value as Task["priority"]
               )
             }
+            className="rounded-xl border border-gray-300 bg-white p-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           >
-            <option value="LOW">Low</option>
-            <option value="MEDIUM">Medium</option>
-            <option value="HIGH">High</option>
+            <option value="LOW">🟢 Low</option>
+            <option value="MEDIUM">🟡 Medium</option>
+            <option value="HIGH">🔴 High</option>
           </select>
 
           <select
-            className="rounded-lg border p-3"
             value={form.status}
             onChange={(e) =>
               updateField(
@@ -89,30 +91,37 @@ export default function EditTaskModal({
                 e.target.value as Task["status"]
               )
             }
+            className="rounded-xl border border-gray-300 bg-white p-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           >
-            <option value="TODO">Todo</option>
+            <option value="TODO">📋 Todo</option>
             <option value="IN_PROGRESS">
-              In Progress
+              ⏳ In Progress
             </option>
-            <option value="DONE">Done</option>
+            <option value="DONE">
+              ✅ Completed
+            </option>
           </select>
+
         </div>
 
         <div className="flex justify-end gap-3">
+
           <button
             onClick={onClose}
-            className="rounded-lg border px-5 py-2 hover:bg-gray-100"
+            className="rounded-xl border border-gray-300 px-5 py-2 font-medium text-gray-700 transition hover:bg-gray-100"
           >
             Cancel
           </button>
 
           <button
             onClick={() => onSave(form)}
-            className="rounded-lg bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
+            className="rounded-xl bg-blue-600 px-5 py-2 font-medium text-white transition hover:bg-blue-700"
           >
             Save
           </button>
+
         </div>
+
       </div>
     </div>
   );
