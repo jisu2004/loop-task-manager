@@ -19,7 +19,8 @@ export default function FilterBar({
   setPriorityFilter,
 }: Props) {
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="grid gap-4 sm:grid-cols-2">
+
       <select
         value={statusFilter}
         onChange={(e) =>
@@ -31,12 +32,12 @@ export default function FilterBar({
               | "DONE"
           )
         }
-        className="border rounded-lg px-4 py-2"
+        className="rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
       >
-        <option value="ALL">All Status</option>
-        <option value="TODO">Todo</option>
-        <option value="IN_PROGRESS">In Progress</option>
-        <option value="DONE">Done</option>
+        <option value="ALL">📋 All Status</option>
+        <option value="TODO">📝 Todo</option>
+        <option value="IN_PROGRESS">⏳ In Progress</option>
+        <option value="DONE">✅ Completed</option>
       </select>
 
       <select
@@ -50,13 +51,14 @@ export default function FilterBar({
               | "HIGH"
           )
         }
-        className="border rounded-lg px-4 py-2"
+        className="rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
       >
-        <option value="ALL">All Priority</option>
-        <option value="LOW">Low</option>
-        <option value="MEDIUM">Medium</option>
-        <option value="HIGH">High</option>
+        <option value="ALL">🎯 All Priority</option>
+        <option value="LOW">🟢 Low</option>
+        <option value="MEDIUM">🟡 Medium</option>
+        <option value="HIGH">🔴 High</option>
       </select>
+
     </div>
   );
 }
