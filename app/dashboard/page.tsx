@@ -153,9 +153,29 @@ export default function DashboardPage() {
     await fetchTasks();
   };
 
-  const handleTaskDeleted = async () => {
+  const handleTaskDeleted = async (id: string) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this task?"
+  );
+
+  if (!confirmDelete) return;
+
+  try {
+    const res = await fetch(`/api/tasks/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      alert("Failed to delete task");
+      return;
+    }
+
     await fetchTasks();
-  };
+  } catch (error) {
+    console.error(error);
+    alert("Something went wrong.");
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-100">
