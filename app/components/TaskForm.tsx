@@ -61,7 +61,7 @@ export default function TaskForm({ onAddTask }: Props) {
       <input
         type="text"
         placeholder="Enter task title..."
-        className="w-full rounded-xl border border-gray-300 p-3 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+        className="w-full rounded-xl border border-gray-300 bg-white p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
@@ -69,14 +69,14 @@ export default function TaskForm({ onAddTask }: Props) {
       <textarea
         placeholder="Task description (optional)"
         rows={4}
-        className="w-full rounded-xl border border-gray-300 p-3 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+       className="w-full rounded-xl border border-gray-300 bg-white p-3 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <select
-          className="rounded-xl border border-gray-300 p-3 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+         className="rounded-xl border border-gray-300 bg-white p-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
         >
@@ -86,7 +86,7 @@ export default function TaskForm({ onAddTask }: Props) {
         </select>
 
         <select
-          className="rounded-xl border border-gray-300 p-3 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+          className="rounded-xl border border-gray-300 bg-white p-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
